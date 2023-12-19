@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MyCalculator.GraphPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MyCalculator.ViewModel"
+             x:DataType="viewmodel:GraphViewModel"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             Title="GraphPage">
+    
+
+    <Grid Padding ="10" RowSpacing="6" ColumnSpacing="6"
+                  RowDefinitions="*,12*,*,*,*"
+                  ColumnDefinitions="*,4*,*,4*">
+        
+        <Label x:Name="FormulaName"
+               Text="{Binding Text}"
+               FontSize="20"
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" 
+               Grid.Row="0" Grid.ColumnSpan="4"/>
+        
+        <lvc:CartesianChart Series="{Binding Series}" 
+                            Margin="3"
+                            HeightRequest="480" WidthRequest="480"
+                            TooltipPosition="Hidden"
+                            XAxes="{Binding XAxes}"
+                            YAxes="{Binding YAxes}"
+                            DrawMarginFrame="{Binding Frame}"
+                            Grid.Row="1" Grid.ColumnSpan="4"/>
+        
+        <Label Text="Min X:"
+               Grid.Row="2" Grid.Column="0"/>
+        <Entry x:Name="MinX" Placeholder="min x" 
+               MaxLength="7"
+               TextChanged="MinX_TextChanged"
+               Grid.Row="2" Grid.Column="1"/>
+
+        <Label Text="Min Y:"
+               Grid.Row="2" Grid.Column="2"/>
+        <Entry x:Name="MinY" Placeholder="min y" 
+               MaxLength="7"
+               TextChanged="MinY_TextChanged"
+               Grid.Row="2" Grid.Column="3"/>
+
+        <Label Text="Max X:"
+               Grid.Row="3" Grid.Column="0"/>
+        <Entry x:Name="MaxX" Placeholder="max x" 
+               MaxLength="7"
+               TextChanged="MaxX_TextChanged"
+               Grid.Row="3" Grid.Column="1"/>
+        <Label Text="Max Y:"
+               Grid.Row="3" Grid.Column="2"/>
+        <Entry x:Name="MaxY" Placeholder="max y" 
+               MaxLength="7"
+               TextChanged="MaxY_TextChanged"
+               Grid.Row="3" Grid.Column="3"/>
+
+        <Button x:Name="Update" Text="Update"
+                Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="2" 
+                Command="{Binding ShowGraphCommand}"/>
+        <Button x:Name="Back" Text="Back"
+                Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" 
+                Command="{Binding GoBackCommand}"/>
+
+    </Grid>
+    
+</ContentPage>

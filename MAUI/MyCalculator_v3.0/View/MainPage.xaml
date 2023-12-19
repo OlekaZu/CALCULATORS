@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCalculator.MainPage"
+             xmlns:viewmodel="clr-namespace:MyCalculator.ViewModel"
+             x:DataType="viewmodel:CalculatorViewModel"
+             Title="Calculator(version_3.0)"
+             HeightRequest="700" WidthRequest="510">
+
+    <VerticalStackLayout>
+        <Grid x:Name="MainGrid" Padding="16" RowSpacing="6" ColumnSpacing="6"
+                  RowDefinitions="2*,2*,*,*,*,*,*,*"
+                  ColumnDefinitions="*,*,*,*,*,*">
+
+            <Editor x:Name="InputStr"  Placeholder="Input expression"
+                   Text="{Binding Input}"
+                   HeightRequest="70" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="End"
+                   Grid.Row="0" Grid.ColumnSpan="6"/>
+            <Label x:Name="ResultStr" 
+                   HeightRequest="50"
+                   FontSize="25" FontAttributes="Bold" 
+                   Text="0" 
+                   TextColor="#E2687D"
+                   HorizontalTextAlignment="End"
+                   VerticalTextAlignment="End"
+                   LineBreakMode="NoWrap"
+                   Grid.Row="1" Grid.ColumnSpan="6"/>
+
+            <Button Text="graph" Grid.Row="2" Grid.Column="0"
+                    Clicked="OnClear"
+                    Command="{Binding DrawGraphCommand}"/>
+            <Button Text="π‎" Grid.Row="2" Grid.Column="1"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="e+" Grid.Row="2" Grid.Column="2"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="e-" Grid.Row="2" Grid.Column="3"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="⟶" Grid.Row="2" Grid.Column="4"
+                    Clicked="OnClearLastSymbol"/>
+            <Button Text="AC" Grid.Row="2" Grid.Column="5"
+                    Clicked="OnClear"/>
+
+            <Button Text="asin" Grid.Row="3" Grid.Column="0"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="sin" Grid.Row="3" Grid.Column="1"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="(" Grid.Row="3" Grid.Column="2"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text=")" Grid.Row="3" Grid.Column="3"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="Arg X" Grid.Row="3" Grid.Column="4"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="÷" Grid.Row="3" Grid.Column="5"
+                    Clicked="OnSelectInputSymbol"/>
+
+            <Button Text="acos" Grid.Row="4" Grid.Column="0"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="cos" Grid.Row="4" Grid.Column="1"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="7" Grid.Row="4" Grid.Column="2"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="8" Grid.Row="4" Grid.Column="3"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="9" Grid.Row="4" Grid.Column="4"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="×" Grid.Row="4" Grid.Column="5"
+                    Clicked="OnSelectInputSymbol"/>
+
+            <Button Text="atan" Grid.Row="5" Grid.Column="0"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="tan" Grid.Row="5" Grid.Column="1"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="4" Grid.Row="5" Grid.Column="2"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="5" Grid.Row="5" Grid.Column="3"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="6" Grid.Row="5" Grid.Column="4"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="-" Grid.Row="5" Grid.Column="5"
+                    Clicked="OnSelectInputSymbol"/>
+
+            <Button Text="log" Grid.Row="6" Grid.Column="0"
+               Clicked="OnSelectInputSymbol"/>
+            <Button Text="ln" Grid.Row="6" Grid.Column="1"
+               Clicked="OnSelectInputSymbol"/>
+            <Button Text="1" Grid.Row="6" Grid.Column="2"
+               Clicked="OnSelectInputSymbol"/>
+            <Button Text="2" Grid.Row="6" Grid.Column="3"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="3" Grid.Row="6" Grid.Column="4"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="+" Grid.Row="6" Grid.Column="5"
+                    Clicked="OnSelectInputSymbol"/>
+
+            <Button Text="mod" Grid.Row="7" Grid.Column="0"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="√" Grid.Row="7" Grid.Column="1"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="^" Grid.Row="7" Grid.Column="2"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="0" Grid.Row="7" Grid.Column="3"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button Text="." Grid.Row="7" Grid.Column="4"
+                    Clicked="OnSelectInputSymbol"/>
+            <Button x:Name="ButtonEqualSign"
+                    Text="=" Grid.Row="7" Grid.Column="5"
+                    BackgroundColor="#E2687D"
+                    Clicked="OnEqualSignClicked"
+                    Command="{Binding CalculateCommand}"/>
+
+        </Grid>
+
+        <HorizontalStackLayout Spacing="10" Padding="2" HorizontalOptions="CenterAndExpand">
+            <Label Text="Input meaning Argument X: " 
+                   FontAttributes="Bold"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Entry x:Name="InputArgX" FontAttributes="Bold"
+                   WidthRequest="100"
+                   TextChanged="InputArgX_TextChanged"/>
+        </HorizontalStackLayout>
+
+        <Label Text="History"  FontAttributes="Bold"
+               TextColor="White" BackgroundColor="#D09D80"
+               HorizontalTextAlignment="Center"/>
+
+        <ScrollView>
+            <ListView x:Name="HistoryListView" MaximumHeightRequest="120"
+                  ItemsSource="{Binding CalculatorHistory}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodel:CalculatorViewModel">
+                        <ViewCell>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Input}" TextColor="Black"  FontSize="14" />
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <HorizontalStackLayout Spacing="8">
+            <Button Text="Select" WidthRequest="100" HeightRequest="35"
+                    BackgroundColor="#D09D80" 
+                    Command="{Binding SelectFromHistoryCommand}"
+                    CommandParameter="{Binding Source={x:Reference Name=HistoryListView}, Path=SelectedItem}"
+                    Clicked="OnSelectItemClicked" />
+
+            <Button Text="Remove" WidthRequest="100" HeightRequest="35"
+                    BackgroundColor="#D09D80"
+                    Command="{Binding RemoveHistoryCommand}"/>
+
+            <Button Text="Readme" WidthRequest="100" HeightRequest="35"
+                    BackgroundColor="#D09D80" 
+                    Command="{Binding OpenManualCommand}"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>

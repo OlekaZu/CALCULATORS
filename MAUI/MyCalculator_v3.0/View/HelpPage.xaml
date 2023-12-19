@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCalculator.HelpPage"
+             Title="HelpPage">
+        <ScrollView>
+    <VerticalStackLayout>
+        <Label 
+            Text="SmartCalculator_3.0" 
+            FontAttributes="Bold" FontSize="20"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <Grid Padding="5" RowSpacing="6" ColumnSpacing="6"
+                  RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*"
+                  ColumnDefinitions="*">
+                <Label Grid.Row="0" Grid.Column="0"
+                   Text="Main function"
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="1" Grid.Column="0"
+                   Text="1. Calculate simply mathematical expressions (using add, sub, mult, div, pow operators)."
+                   HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="2" Grid.Column="0"
+                   Text="2. Calculate mathematical expressions with brackets."
+                   HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="3" Grid.Column="0"
+                   Text="3. Calculate trigonometry mathematical expressions."
+                   HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="4" Grid.Column="0"
+                   Text="4. Calculate natural and decimal logarithms, and also square root."
+                   HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="5" Grid.Column="0"
+                   Text="5. Using x-argument for calculating and drawing the graphs."
+                   HorizontalTextAlignment="Start"/>
+
+                <Label Grid.Row="7" Grid.Column="0"
+                   Text="How to calculate"
+                   FontAttributes="Bold" 
+                   HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="8" Grid.Column="0"
+                   Text="   If you want to calculate the mathematical expression, input whole expression using the buttons or keyboard and them press button &lt;b&gt;&quot; = &quot;&lt;/b&gt;." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="input.png"
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="400"
+                       Grid.Row="9" Grid.Column="0" />
+                <Label Grid.Row="10" Grid.Column="0"
+                   Text="   You can see the answer under the input line." 
+                   HorizontalTextAlignment="Start" />
+                <Image Source="result.png"
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="200"
+                       Grid.Row="11" Grid.Column="0" />
+                <Label Grid.Row="12" Grid.Column="0"
+                   Text="   If your expression is contained by x-argument, you can input the &lt;b&gt;x-argument&lt;/b&gt; in the special field using your keyboard. The default value of &lt;b&gt;x is 0&lt;/b&gt;." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="x_input.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="400"
+                       Grid.Row="13" Grid.Column="0" />
+                <Label Grid.Row="14" Grid.Column="0"
+                   Text="   Pay attention that you need to input expression in the correct way. Otherwise you receive the &lt;b&gt;Incorrect input&lt;/b&gt; as the answer." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="incorrect.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="200"
+                       Grid.Row="15" Grid.Column="0" />
+                <Label Grid.Row="16" Grid.Column="0"
+                   Text="   The button &lt;b&gt;AC&lt;/b&gt; removes the input line and the answer. The button &lt;b&gt;⟶&lt;/b&gt; removes the last entered element from the input line." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="delete.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="200"
+                       Grid.Row="17" Grid.Column="0" />
+
+                <Label Grid.Row="20" Grid.Column="0"
+                       Text="How to draw the graph"
+                       FontAttributes="Bold" 
+                       HorizontalTextAlignment="Start"/>
+                <Label Grid.Row="21" Grid.Column="0"
+                   Text="   Input the correct expression with x-argument. And press the button &lt;b&gt;&quot;graph&quot;&lt;/b&gt;." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="graph_input.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="200"
+                       Grid.Row="22" Grid.Column="0" />
+                <Label Grid.Row="23" Grid.Column="0"
+                   Text="   New window will be opened. Set the field of definition (&lt;b&gt;Min X&lt;/b&gt; and &lt;b&gt;Max X&lt;/b&gt;), the range of function (&lt;b&gt;Min Y&lt;/b&gt; and &lt;b&gt;Max Y&lt;/b&gt;) or leave the default values." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="graph_limit.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="70"
+                       Grid.Row="24" Grid.Column="0" />
+                <Label Grid.Row="25" Grid.Column="0"
+                   Text="   Press button &lt;b&gt;&quot;Update&quot;&lt;/b&gt; and you can see the graph. Also you can change the meanings of Min X, Max X, Min Y and Max Y, press the button &lt;b&gt;&quot;Update&quot;&lt;/b&gt; and new graph will be drawn." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+                <Image Source="graph_show.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       HeightRequest="500"
+                       Grid.Row="26" Grid.Column="0" />
+                <Label Grid.Row="27" Grid.Column="0"
+                   Text="   The button &lt;b&gt;&quot;Back&quot;&lt;/b&gt; returns you to the main page." 
+                   TextType="Html"
+                   HorizontalTextAlignment="Start" />
+            </Grid>
+    </VerticalStackLayout>
+        </ScrollView>
+</ContentPage>
