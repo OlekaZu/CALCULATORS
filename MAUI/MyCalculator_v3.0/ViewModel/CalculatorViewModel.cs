@@ -33,10 +33,10 @@ namespace MyCalculator.ViewModel
                 {
                     CalculatorModel model = new(Input, ArgumentX);
                     CalculatorHistory.Add(model);
-                    AddHistoryInFile();
                     Input = model.Input;
                     _result = model.Result;
                     _error = model.Error!;
+                    AddHistoryInFile();
                 });
             SelectFromHistoryCommand = new Command((args) =>
                 {
@@ -110,7 +110,7 @@ namespace MyCalculator.ViewModel
 
         public void AddHistoryInFile()
         {
-            if (Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "History")))
+            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "History")))
                 Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "History"));
             using (StreamWriter writer = new StreamWriter(_historyFilePath, true))
             {
