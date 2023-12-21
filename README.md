@@ -6,7 +6,7 @@ __There are 3 implementations of the application:__
 
 __1.__ [Desktop version (using QT, CPP)](#desktop-version-qt) \
 __2.__ [Desktop version (using .NET MAUI, C#, extern CPP Library)](#desktop-version-maui) \
-__3.__ [Web version (using ASP.NET MVC, extern CPP Library)](web-version-aspnet)
+__3.__ [Web version (using ASP.NET MVC, extern CPP Library)](#web-version-aspnet)
 
 __All implementations can:__
 - calculate long bracketed arithmetic expressions in infix notation;
@@ -56,20 +56,25 @@ __QT desktop version and Web version also have modules for__:
 
 #### View of the App
 1. Main window:
-   
-   ![qt-main-window](screenshots/qt_main_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/qt_main_window.png">
+</p>
 2. Graph window:
-   
-   ![qt-graph-window](screenshots/qt_graph_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/qt_graph_window.png">
+</p> 
 3. Help window:
-   
-   ![qt-help-window](screenshots/qt_help_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/qt_help_window.png">
+</p>   
 4. Credit window:
-
-   ![qt-credit-window](screenshots/qt_credit_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/qt_credit_window.png">
+</p>
 5. Deposit window:
-
-   ![qt-credit-window](screenshots/qt_credit_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/qt_credit_window.png">
+</p>
    
 ## <a id="desktop-version-maui">Desktop version (using .NET MAUI, C#, extern CPP Library)</a>
 
@@ -121,11 +126,13 @@ dotnet publish .\MyCalculator_v3.0 -f <TargetFramework> -c Debug -p:RuntimeIdent
 Also you can debug or release the App using ***Visual Studio 2022***. In this case you need to enable ***Developer Mode*** in your system.
 Learn more about MAUI building [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/first-app).
 
-#### How to run on Mac
+#### How to run on MacOS
 Try to launch `script_unix.sh` for running the App on MacOS.
+\
 In this script:
-- ***Target Framework*** is ***net8.0-maccatalyst***
-- ***Platform's Configuration** is ***maccatalyst-x64***
+- **Target Framework** is ***net8.0-maccatalyst***
+- **Platform's Configuration** is ***maccatalyst-x64***
+\
 If you have other parameters, please, change the corresponding variables in script-file (*$target_framework, $configuration*).
 
 \
@@ -133,14 +140,17 @@ After the script will be successfully completed, you can find the App in the ***
 
 #### View of the App
 1. Main window:
-   
-   ![maui-main-window](screenshots/maui_main_window.png)
+<p align="center">
+  <img width="400" height="556" src="./screenshots/maui_main_window.png">
+</p>  
 2. Graph window:
-   
-   ![maui-graph-window](screenshots/maui_graph_window.png)
+<p align="center">
+  <img width="400" height="556" src="./screenshots/maui_graph_window.png">
+</p>   
 3. Help window:
-   
-   ![maui-help-window](screenshots/maui_help_window.png)
+<p align="center">
+  <img width="400" height="556" src="./screenshots/maui_help_window.png">
+</p>    
    
 ## <a id="web-version-aspnet">Web version (using ASP.NET MVC, extern CPP Library)</a>
 
@@ -162,18 +172,23 @@ After the script will be successfully completed, you can find the App in the ***
 
 #### View of the App
 1. Main window:
-   
-   ![asp-main-window](screenshots/asp_main_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/asp_main_window.png">
+</p>
 2. Graph window:
-   
-   ![asp-graph-window](screenshots/asp_graph_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/asp_graph_window.png">
+</p>   
 3. Help window:
-   
-   ![asp-help-window](screenshots/asp_help_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/asp_help_window.png">
+</p>   
 4. Credit window:
-
-   ![asp-credit-window](screenshots/asp_credit_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/asp_credit_window.png">
+</p>
 5. Deposit window:
-
-   ![asp-credit-window](screenshots/asp_credit_window.png)
+<p align="center">
+  <img width="250" height="400" src="./screenshots/asp_credit_window.png">
+</p>
    
