@@ -93,6 +93,7 @@ __QT desktop version and Web version also have modules for__:
 #### How to run on Windows
 This version was tested on the ***Windows 10 (platform - x64)***, but other platforms should also be available.
 
+
 First of all, be sure that ***VCTargetsPath*** is set correctly to the last updated MSBuild Build Tools:
 ```
 $Env:VCTargetsPath

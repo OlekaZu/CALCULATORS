@@ -11,6 +11,7 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 add_library(ModelLibrary SHARED ${SRC_LIBRARY})
 
 target_include_directories(ModelLibrary
+
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/windows_src
 )
