@@ -40,12 +40,15 @@ __QT desktop version and Web version also have modules for__:
   
 ## <a id="desktop-version-qt">Desktop version (using QT, CPP)</a>
 
-#### Source code directory: `./MAUI/`
+#### Source code directory: `./QT/`
 
-#### Output App destination: `./MAUI/MyCalculator_v3.0/bin/Debug/net8.0-<platform's configuration>/<platform's configuration>/publish/MyCalculator.exe`
+#### Output App destination: `./QT/`
 
 #### Software stack:
-- 
+- C++17
+- QT 6.2
+- QT Creator 7.0.0
+- Cmake
 
 #### How to run on Windows
 
@@ -80,10 +83,10 @@ __QT desktop version and Web version also have modules for__:
 - .NET MAUI
 - C++17
 - Visual Studio 2022
+- Cmake
 
 #### How to run on Windows
-
-This version was tested on the Windows 10 (platform - x64), but other platforms should also be available.
+This version was tested on the ***Windows 10 (platform - x64)***, but other platforms should also be available.
 
 First of all, be sure that ***VCTargetsPath*** is set correctly to the last updated MSBuild Build Tools:
 ```
@@ -97,7 +100,7 @@ or through ***Windows Settings (About System -> Additional System Settings -> En
 \
 \
 \
-Then go to the source directory and try to launch the App using `script_win.ps1`.
+Then go to the source directory and try to launch the App using `script_win.ps1` (here the CPP Library is built by ***MSBuild tools***) or `sript_win_2.ps1` (here the CPP Library is built by ***Cmake tools***).
 
 If you are successfull, you'll find the published App in the ***output App destination***.
 \
@@ -115,10 +118,18 @@ Secondly, build the MyCalculator App:
 dotnet publish .\MyCalculator_v3.0 -f <TargetFramework> -c Debug -p:RuntimeIdentifierOverride=<platform's configuration> -p:WindowsPackageType=None
 ```
 \
-Also you can debug or release the App using Visual Studio 2022. In this case you need to enable Developer Mode in your system.
+Also you can debug or release the App using ***Visual Studio 2022***. In this case you need to enable ***Developer Mode*** in your system.
 Learn more about MAUI building [here](https://learn.microsoft.com/en-us/dotnet/maui/get-started/first-app).
 
 #### How to run on Mac
+Try to launch `script_unix.sh` for running the App on MacOS.
+In this script:
+- ***Target Framework*** is ***net8.0-maccatalyst***
+- ***Platform's Configuration** is ***maccatalyst-x64***
+If you have other parameters, please, change the corresponding variables in script-file (*$target_framework, $configuration*).
+
+\
+After the script will be successfully completed, you can find the App in the ***output App destination***.
 
 #### View of the App
 1. Main window:
@@ -133,12 +144,17 @@ Learn more about MAUI building [here](https://learn.microsoft.com/en-us/dotnet/m
    
 ## <a id="web-version-aspnet">Web version (using ASP.NET MVC, extern CPP Library)</a>
 
-#### Source code directory: `./MAUI/`
+#### Source code directory: `./ASP.NET_MVC/`
 
-#### Output App destination: `./MAUI/MyCalculator_v3.0/bin/Debug/net8.0-<platform's configuration>/<platform's configuration>/publish/MyCalculator.exe`
+#### Output App destination: `./ASP.NET_MVC/`
 
 #### Software stack:
-- 
+- NET 8.0
+- C# 12.0
+- ASP.NET MVC
+- C++17
+- Visual Studio 2022
+- Cmake
 
 #### How to run on Windows
 
