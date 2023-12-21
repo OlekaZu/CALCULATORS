@@ -8,7 +8,8 @@
             "installDir": "${sourceDir}/out/install/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "SOURCE_LIB": "${sourceDir}/mac_linux_src/*.cpp"
+                "SOURCE_LIB": "${sourceDir}/mac_linux_src/*.cpp",
+                "SOURCE_LIB_DIR": "${sourceDir}/mac_linux_src"
             },
             "environment": {
                 "PATH": "$env{HOME}/ninja/bin:$penv{PATH}"
@@ -23,7 +24,8 @@
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "SOURCE_LIB": "${sourceDir}/windows_src/*.cpp"
+                "SOURCE_LIB": "${sourceDir}/windows_src/*.cpp",
+                "SOURCE_LIB_DIR": "${sourceDir}/windows_src"
             },
             "condition": {
                 "type": "equals",

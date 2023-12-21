@@ -12,7 +12,7 @@ add_library(ModelLibrary SHARED ${SRC_LIBRARY})
 
 target_include_directories(ModelLibrary
     PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/windows_src
+        ${CMAKE_CURRENT_SOURCE_DIR}/${SOURCE_LIB_DIR}
 )
 
 set_target_properties(
