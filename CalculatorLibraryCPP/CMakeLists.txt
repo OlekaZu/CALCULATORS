@@ -1,29 +1,25 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 
-project (Calculator)
+project (CalculatorSharedLib CXX)
 
-# set(CMAKE_MAKE_PROGRAM "C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/Ninja/ninja.exe")
+set(LIBRARY_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/out/")
 
-set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
-#set(CMAKE_BUILD_TYPE Release)
+file(GLOB SRC_LIBRARY ${SOURCE_LIB})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-set(LIBRARY_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../MAUI/MyCalculator_v3.0/Libraries/")
+add_library(ModelLibrary SHARED ${SRC_LIBRARY})
 
-file(GLOB SRC_LIBRARY "windows_src/*.cpp")
-
-add_library(${PROJECT_NAME}Library SHARED ${SRC_LIBRARY})
-
-target_include_directories(${PROJECT_NAME}Library
+target_include_directories(ModelLibrary
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/windows_src
 )
 
 set_target_properties(
-    ${PROJECT_NAME}Library 
+    ModelLibrary 
     PROPERTIES 
         PREFIX ""
-        OUTPUT_NAME "CalculatorModelLibrary"
+        OUTPUT_NAME "ModelLibrary"
+        SUFFIX ".dll"
         CXX_STANDARD 17
 )
