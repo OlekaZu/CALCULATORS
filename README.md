@@ -160,10 +160,14 @@ After the script will be successfully completed, you can find the App in the **_
   <img width="400" height="556" src="./screenshots/maui_main_window.png">
 </p>
 2. Graph window:
+<br>
+<br>
 <p align="center">
   <img width="400" height="556" src="./screenshots/maui_graph_window.png">
 </p>
 3. Help window:
+<br>
+<br>
 <p align="center">
   <img width="400" height="556" src="./screenshots/maui_help_window.png">
 </p>
@@ -172,7 +176,7 @@ After the script will be successfully completed, you can find the App in the **_
 
 #### Source code directory: `./ASP.NET_MVC/`
 
-#### Output App destination: `./ASP.NET_MVC/`
+#### Output App destination: `./ASP.NET_MVC/bin/Debug/net8.0/MyCalculator_v4.0.exe`
 
 #### Software stack:
 
@@ -184,28 +188,56 @@ After the script will be successfully completed, you can find the App in the **_
 - Cmake
 
 #### How to run on Windows
+Go to the source directory and try to launch the App using `script_win.ps1`(here the CPP Library is built by **_Cmake tools_**).
 
+If you are successfull, you see the link, which is used for App hosting.
+
+For example:
+```
+http://localhost:<port number>
+```
+Follow this link in your browser in order to open the home page of the App. 
+
+In **powershell7** you can use ***CTRL+link tab*** for opening the home page.
+<br>
+<br>
 #### How to run on Mac or Linux
+Go to the source directory and try to launch the App using `script_unix.sh`(here the CPP Library is built by **_Cmake tools_**).
+
+If you are successfull, you see the link, which is used for App hosting.
+
+For example:
+```
+http://localhost:<port number>
+```
+Follow this link in your browser in order to open the home page of the App. 
 
 #### View of the App
-
 1. Main window:
 <p align="center">
-  <img width="250" height="400" src="./screenshots/asp_main_window.png">
+  <img src="./screenshots/asp_main_window.png">
 </p>
 2. Graph window:
+<br>
+<br>
 <p align="center">
-  <img width="250" height="400" src="./screenshots/asp_graph_window.png">
+  <img src="./screenshots/asp_graph_window.png">
 </p>
 3. Help window:
+<br>
+<br>
 <p align="center">
-  <img width="250" height="400" src="./screenshots/asp_help_window.png">
+  <img src="./screenshots/asp_help_window.png">
 </p>
 4. Credit window:
+<br>
+<br>
 <p align="center">
-  <img width="250" height="400" src="./screenshots/asp_credit_window.png">
+  <img src="./screenshots/asp_credit_window.png">
 </p>
 5. Deposit window:
+<br>
+<br>
 <p align="center">
-  <img width="250" height="400" src="./screenshots/asp_credit_window.png">
+  <img src="./screenshots/asp_deposit_window.png">
 </p>
