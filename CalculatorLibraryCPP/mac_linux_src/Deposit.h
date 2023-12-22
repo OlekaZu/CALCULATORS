@@ -20,7 +20,7 @@ class DepositCalc {
   std::string GetError();
 
  private:
-  const double kRateTaxBegin = 0.13;
+  const double kRateTaxBegin = 0.18;
   double percent_sum_;
   double tax_sum_;
   double total_sum_;

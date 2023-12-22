@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Deposit Calculator";
+	@model DepositModel
+}
+
+<div class="container-center">
+	<h3>@ViewData["Title"]</h3>
+	<div class="container my-container-style">
+		<p><b>Input parameters:</b></p>
+
+		<form action="/Deposit/Index" method="post">
+			<div class="container-one-line">
+				<label for="deposit_sum">Deposit Amount (RUB):</label>
+				<input name="DepositSum" id="deposit_sum" type="number" step="0.01" value="@Model.DepositSum" style="width:200px" />
+			</div>
+			<div class="container-one-line">
+				<label for="term">Term (the number of months):</label>
+				<input name="DepositTerm" id="term" type="number" value="@Model.DepositTerm" style="width:200px" />
+			</div>
+			<div class="container-one-line">
+				<label for="interest_rate">Interest Rate (%):</label>
+				<input name="DepositPercent" id="interest_rate" type="number" step="0.01" value="@Model.DepositPercent" style="width:200px" />
+			</div>
+			<div class="container-one-line">
+				<label for="tax_rate">Tax Rate (%):</label>
+				<input name="DepositTax" id="tax_rate" type="number" step="0.01" value="@Model.DepositTax" style="width:200px" />
+			</div>
+			<p style="margin-top:12px">
+				<b>Capitalization of Interests:</b><br />
+				<input name="CapitalizationMethod" type="radio" value="1" />
+				<span>Monthly</span> <br />
+				<input name="CapitalizationMethod" type="radio" value="2" />
+				<span>Quarterly</span> <br />
+				<input name="CapitalizationMethod" type="radio" value="3" />
+				<span>None</span> <br />
+			</p>
+			<div class="container-one-line">
+				<input name="PutFlowCheck" type="checkbox" onclick="doActiveInput(PutFlowCheck,DepositPutFlow)">Possibility of Additions<br/>
+				<input name="DepositPutFlow" type="number" step="0.01" value="@Model.DepositPutFlow" disabled style="width:200px" />
+			</div>
+			<div class="container-one-line">
+				<input name="DrawFlowCheck" type="checkbox" onclick="doActiveInput(DrawFlowCheck,DepositDrawFlow)">Possibility of Withdrawals<br />
+				<input name="DepositDrawFlow" type="number" step="0.01" value="@Model.DepositDrawFlow" disabled style="width:200px" />
+			</div>
+			<div class="container-one-line-button">
+				<input type="submit" value="Calculate" />
+			</div>
+		</form>
+
+		<input id="error_field" type="hidden" value="@Model.DepositError"/>
+
+		<div class="container-one-line">
+			<label for="sum_interest">Accrued Interest (RUB):</label>
+			<input name="DepositPercentSum" id="sum_interest" type="number" step="0.01" value="@Model.DepositPercentSum" readonly style="width:200px" />
+		</div>
+		<div class="container-one-line">
+			<label for="tax_amount">Tax Amount (RUB):</label>
+			<input name="DepositTaxSum" id="tax_amount" type="number" step="0.01" value="@Model.DepositTaxSum" readonly style="width:200px" />
+		</div>
+		<div class="container-one-line">
+			<label for="total_amount">Total Amount (RUB):</label>
+			<input name="DepositTotalSum" id="total_amount" type="number" step="0.01" value="@Model.DepositTotalSum" readonly style="width:200px" />
+		</div>
+		<p style="margin-top:12px">
+			<em>
+				<b>
+					* The periodicity of the interest payments - every month.<br />
+					* The sum of the partial addition or withdrawal is the same for the period: per month - for none and monthly capitalization, per quarter - for quarterly capitalization.
+				</b>
+			</em>
+		</p>
+	</div>
+</div>
+
+@*For Check Capitalization Radio After Submit Form*@
+<script>
+	if (@Model.CapitalizationMethod== 1)
+		document.getElementsByName('CapitalizationMethod')[0].checked = true;
+	else if (@Model.CapitalizationMethod== 2)
+		document.getElementsByName('CapitalizationMethod')[1].checked = true;
+	else if (@Model.CapitalizationMethod== 3)
+		document.getElementsByName('CapitalizationMethod')[2].checked = true;
+</script>
+
+@*Check Correction of Input Data*@
+<script>
+	let error = document.getElementById("error_field").value;
+	if (error.length != 0)
+		alert("Something wrong! Check your input data.\n" + error);
+	//document.getElementByName("PutFlowCheck").click();
+	//document.getElementByName("DrawFlowCheck").click();
+</script>
