@@ -1,0 +1,30 @@
+﻿@{
+	ViewData["Title"] = "Graph Page";
+}
+
+<div class="container-center">
+	<h3>@ViewData["Title"]</h3>
+
+	<div class="container-one-line" style="align-items:flex-start;">
+		<label for="inputFormula">Input formula for drawing a graph:</label>
+		<textarea id="inputFormula" onchange="drawGraph()" rows="3" placeholder="Input expression" maxlength="255" style="width:500px;"></textarea>
+	</div>
+
+	<canvas id="graphChart" style="max-height:500px;width:100%;max-width:800px;"></canvas>
+
+	<div class="container-one-line">
+		<label for="xMin">Min X:</label>
+		<input id="xMin" type="number" step="0.01" onchange="drawGraph()" value="-10" style="margin-right:20px"/>
+		<label for="yMin">Min Y:</label>
+		<input id="yMin" type="number" step="0.01" onchange="updateYAxe()" value="-10" />
+	</div>	
+	<div class="container-one-line">
+		<label for="xMax">Max X:</label>
+		<input id="xMax" type="number" step="0.01" onchange="drawGraph()" value="10" style="margin-right:20px"/>
+		<label for="yMax">Max Y:</label>
+		<input id="yMax" type="number" step="0.01" onchange="updateYAxe()" value="10" />
+	</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/js/graph.js"></script>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Manual Page";
+    string name = "MyCalculator_4.0";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <h1>@name</h1>
+</div>
+
+<div class="text-start">
+	<h3>Main Functions</h3>
+    <ol>
+        <li>Calculate simply mathematical expressions (using add, sub, mult, div, pow operators).</li>
+        <li>Calculate mathematical expressions with brackets.</li>
+        <li>Calculate trigonometry mathematical expressions.</li>
+        <li>Calculate natural and decimal logarithms, and also square root.</li>
+        <li>Save your expressions in history.</li>
+        <li>Using x-argument for calculating and drawing the graphs.</li>
+        <li>Calculate credit data.</li>
+        <li>Calculate deposit data.</li>
+	</ol>
+
+    <h3>How to Calculate</h3>
+    <p style="text-indent: 20px;">If you want to calculate the mathematical expression, input whole expression using the buttons or keyboard and them press button <b>&quot;=&quot;</b>.</p>
+    <img src="~/css/image/input.png" alt="Input" style="margin-bottom:25px;">
+    <p style="text-indent: 20px;">You can see the answer under the input line.</p>
+    <img src="~/css/image/result.png" alt="Result" style="margin-bottom:25px;">
+    <p style="text-indent: 20px;">If your expression is contained by x-argument, you can input the <b>x-argument</b> in the special field using your keyboard. The default value of <b>x is 0</b>.</p>
+    <img src="~/css/image/x_input.png" alt="X-Result" style="margin-bottom:25px;">
+	<p style="text-indent: 20px;">Pay attention that you need to input expression in the correct way. Otherwise you receive the <b>Incorrect input</b> as the answer.</p>
+    <img src="~/css/image/incorrect.png" alt="Incorrect" style="margin-bottom:25px;">
+    <p style="text-indent: 20px;">The button <b>AC</b>; removes the input line and the answer. The button <b>⟶</b> removes the last entered element from the input line.</p>
+    <img src="~/css/image/delete.png" alt="Delete">
+    <p></p>
+
+    <h3>History</h3>
+    <p style="text-indent: 20px;">Every calculating expression is saved in the history list below the calculator panel.</p>
+    <img src="~/css/image/history_list.png" alt="History List" style="margin-bottom:25px;">
+    <p style="text-indent: 20px;">You can choose the previous expression to calculate again or clear all records in the history list. The history is saved between application starts. </p>
+    <img src="~/css/image/history_work.png" alt="History Work" style="margin-bottom:25px;">
+    <p></p>
+
+    <h3>How to Draw Graphes</h3>
+    <p style="text-indent: 20px;">Input the correct expression with x-argument. And press the button <b>&quot;graph&quot;</b> or use the navigation bar for opening the <b>Graph Page</b> .</p>
+    <img src="~/css/image/graph_input.png" alt="Graph Input" style="margin-bottom:25px;">
+    <p style="text-indent: 20px;">New window will be opened and you see the graph drawn by default ranges.</p>
+    <img src="~/css/image/graph_view.png" alt="Graph Show" style="margin-bottom:25px;">
+    <p style="text-indent: 20px;">Change the field of definition (<b>Min X</b> and <b>Max X</b>), the range of function (<b>Min Y</b> and <b>Max Y</b>) or of <b>Input Formula</b> to redraw the graph.</p>
+    <img src="~/css/image/graph_limit_redraw.png" alt="Graph Limit and Redraw" style="margin-bottom:25px;">
+    <p></p>
+
+    <h3>Credit</h3>
+    <p style="text-indent: 20px;">On the <b>Credit Page</b> you can estimate your future risks and benefits according to the such input parameters as total loan amount, term and interest rate.
+        Input parameters and press the button <b>Calculate</b>.</p>
+    <img src="~/css/image/credit.png" alt="Credit Calculator" style="margin-bottom:25px;">
+    <p></p>
+
+	<h3>Deposit</h3>
+    <p style="text-indent: 20px;">
+        On the <b>Deposit Page</b> you can estimate your future risks and benefits according to the such input parameters as deposit amount, term, interest and tax rates.
+        Input parameters and press the button <b>Calculate</b>.
+    </p>
+    <img src="~/css/image/deposit.png" alt="Deposit Calculator" style="margin-bottom:25px;">
+    <p></p>
+</div>

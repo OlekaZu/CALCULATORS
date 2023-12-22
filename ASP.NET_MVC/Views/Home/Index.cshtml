@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model CalculatorViewModel
+
+}
+<form action="/Home/Index" id="calculate" method="post"></form>
+<div class="container-center">
+    <div class="grid-container ">
+        <div class="grid-item-span">
+            <textarea name="inputStr" form="calculate" id="inputStrArea" rows="3" placeholder="Input expression" maxlength="255">@Model.CalculatorData.Input</textarea>
+        </div>
+        <div class="grid-item-span">
+            @if (Model.CalculatorData.Error=="")
+            {
+                <input class="input-result" name="resultStr" form="calculate" id="resultStrInput" type="text" value="@Model.CalculatorData.Result" readonly />
+            }
+            else 
+            {
+                <input class="input-result" name="resultStr" form="calculate" id="resultStrInput" type="text" value="@Model.CalculatorData.Error" readonly />
+            }
+        </div>
+        <button class="button" onclick="goToGraphPage()">graph</button>
+        <button class="button" onclick="addToInputStr('π')">π</button>
+        <button class="button" onclick="addToInputStr('e+')">e+</button>
+        <button class="button" onclick=" addToInputStr('e-')">e-</button>
+        <button class="button" onclick="deleteLastElementInInputStr()">➝</button>
+        <button class="button" onclick="cleanInputStr()">AC</button>
+        <button class="button" onclick="addToInputStr('asin(')">asin</button>
+        <button class="button" onclick="addToInputStr('sin(')">sin</button>
+        <button class="button" onclick="addToInputStr('(')">(</button>
+        <button class="button" onclick="addToInputStr(')')">)</button>
+        <button class="button" onclick="addToInputStr('x')">ArgX</button>
+        <button class="button" onclick="addToInputStr('÷')">÷</button>
+        <button class="button" onclick="addToInputStr('acos(')">acos</button>
+        <button class="button" onclick="addToInputStr('cos(')">cos</button>
+        <button class="button" onclick="addToInputStr('7')">7</button>
+        <button class="button" onclick="addToInputStr('8')">8</button>
+        <button class="button" onclick="addToInputStr('9')">9</button>
+        <button class="button" onclick="addToInputStr('×')">×</button>
+        <button class="button" onclick="addToInputStr('atan(')">atan</button>
+        <button class="button" onclick="addToInputStr('tan(')">tan</button>
+        <button class="button" onclick="addToInputStr('4')">4</button>
+        <button class="button" onclick="addToInputStr('5')">5</button>
+        <button class="button" onclick="addToInputStr('6')">6</button>
+        <button class="button" onclick="addToInputStr('-')">-</button>
+        <button class="button" onclick="addToInputStr('log(')">log</button>
+        <button class="button" onclick="addToInputStr('ln(')">ln</button>
+        <button class="button" onclick="addToInputStr('1')">1</button>
+        <button class="button" onclick="addToInputStr('2')">2</button>
+        <button class="button" onclick="addToInputStr('3')">3</button>
+        <button class="button" onclick="addToInputStr('+')">+</button>
+        <button class="button" onclick="addToInputStr('mod')">mod</button>
+        <button class="button" onclick="addToInputStr('√(')">√</button>
+        <button class="button" onclick="addToInputStr('^')">^</button>
+        <button class="button" onclick="addToInputStr('0')">0</button>
+        <button class="button" onclick="addToInputStr('.')">.</button>
+		<button class="button button_equal_bg" type="submit" form="calculate" id="calculateButton" value="@Model.PressEqual">=</button>
+    </div>
+
+    <div class="container-one-line">
+        <div class="argument-x-label">
+            <label for="argx">The Argument X Meaning: </label>
+        </div>
+        <div class="argument-x-input">
+            <input name="argumentX" id="argx" type="number" step="any" form="calculate" value="@Model.CalculatorData.ArgumentX" />
+        </div>
+    </div>
+
+    <div class="label-history">
+        <label>History</label>
+    </div>
+
+    <form action="/Home/DeleteHistory" id="historyList" method="get">
+		<select class="select-container-history" multiple name="HistoryList" id="selectHistory">
+            @foreach (var item in Model.HistoryData.HistoryList)
+            {
+                <option class="select-container-history-item" value="@item">@item</option>
+            }
+        </select>
+        <div class="container-one-line-button">
+            <input type="button" value="Calculate Again" style="margin-right:20px;" onclick="addSelectedToInputStr()"/>
+            <input type="submit" value="Remove History"/>
+		</div>
+    </form>
+</div>
+
+
+@*For Calculate By Enter Press*@
+<script>
+    var input = document.getElementById('inputStrArea');
+    input.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('calculate').submit();
+        }
+    });
+ </script>

@@ -1,0 +1,69 @@
+﻿@{
+	ViewData["Title"] = "Credit Calculator";
+	@model CreditModel
+}
+
+<div class="container-center">
+	<h3>@ViewData["Title"]</h3>
+	<div class="container my-container-style">
+		<p><b>Input parameters:</b></p>
+
+		<form action="/Credit/Index" method="post">
+			<div class="container-one-line">
+				<label for="credit_sum">Total Loan Amount (RUB):</label>
+				<input name="CreditSum" id="credit_sum" type="number" step="0.01" value="@Model.CreditSum" style="width:200px" />
+			</div>
+			<div class="container-one-line">
+				<label for="term">Term (the number of months):</label>
+				<input name="CreditTerm" id="term" type="number" value="@Model.CreditTerm" style="width:200px" />
+			</div>
+			<div class="container-one-line">
+				<label for="rate">Interest Rate (%):</label>
+				<input name="CreditPercent" id="rate" type="number" step="0.01" value="@Model.CreditPercent" style="width:200px" />
+			</div>
+			<p style="margin-top:12px">
+				<b>Repayment Method:</b><br />
+			<input name="CreditMethod" type="radio" value="1"/>
+			<span>Annuity</span> <br />
+			<input name="CreditMethod" type="radio" value="2"/>
+				<span>Differential</span> <br />
+			</p>
+			<div class="container-one-line-button">
+				<input type="submit" value="Calculate"/>
+			</div>
+		</form>
+
+		<input id="error_field" type="hidden" value="@Model.CreditError" />
+
+		<div class="container-one-line">
+			<label for="mon_payment">Monthly payment (RUB):</label>
+			<input name="CreditMonthlyPayment" id="mon_payment" type="number" step="0.01" value="@Model.CreditMonthlyPayment" readonly style="width:200px" />
+		</div>
+		<div class="container-one-line">
+			<label for="overpayment">Loan Overpayment (RUB):</label>
+			<input name="CreditOverpayment" id="overpayment" type="number" step="0.01" value="@Model.CreditOverpayment" readonly style="width:200px" />
+		</div>
+		<div class="container-one-line">
+			<label for="total_pay">Total repayment (RUB):</label>
+			<input name="CreditTotalSum" id="total_pay" type="number" step="0.01" value="@Model.CreditTotalSum" readonly style="width:200px" />
+		</div>
+		<p style="margin-top:12px"> <em><b>
+			* The monthly payment for the differential repayment method is the payment for last month of the term.
+			</b></em></p>
+	</div>
+</div>
+
+@*For Check Method Radio After Submit Form*@
+<script>
+	if (@Model.CreditMethod == 1)
+		document.getElementsByName('CreditMethod')[0].checked = true;
+	else if (@Model.CreditMethod == 2)
+		document.getElementsByName('CreditMethod')[1].checked = true;
+</script>
+
+@*Check Correction of Input Data*@
+<script>
+	let error = document.getElementById("error_field").value;
+	if (error.length != 0)
+		alert("Something wrong! Check your input data.\n" + error);
+</script>
