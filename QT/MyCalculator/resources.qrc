@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/rsc">
+        <file>Icons/calc_icon.icns</file>
+        <file>Icons/calc_icon.ico</file>
+        <file>Icons/calc_icon.png</file>
+    </qresource>
+</RCC>
