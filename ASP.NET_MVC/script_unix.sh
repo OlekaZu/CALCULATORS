@@ -9,6 +9,6 @@ cmake --preset=$current_preset
 cmake --build --preset=$current_preset 
 mkdir -p $lib_dir_for_copy 
 cp out/$lib_name $lib_dir_for_copy/$lib_name
-rm -rm out
+rm -rf out
 cd ../ASP.NET_MVC
 dotnet run

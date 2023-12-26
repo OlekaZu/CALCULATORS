@@ -12,7 +12,7 @@ cmake --preset=$current_preset
 cmake --build --preset=$current_preset
 mkdir -p $lib_dir_for_copy
 cp out/$lib_name $lib_dir_for_copy/$lib_name
-rm -rf out -R
+rm -rf out
 cd ../MAUI
 dotnet publish ./MyCalculator_v3.0 -f $target_framework -c Debug -p:RuntimeIdentifier=$configuration
 open $open_path
