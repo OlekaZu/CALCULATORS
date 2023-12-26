@@ -44,7 +44,7 @@ The App helps to calculate long math expressions, draw charts of functions, esti
 
 #### Source code directory: `./QT/`
 
-#### Output App destination: `./QT/`
+#### Output App destination: `./QT/BuildProject/`
 
 #### Software stack:
 
@@ -53,38 +53,48 @@ The App helps to calculate long math expressions, draw charts of functions, esti
 - QT Creator 7.0.0
 - Cmake
 
+Be sure, that all required soft is installed on your computer.
+
 #### How to run on Windows
 
-#### How to run on Mac or Linux
+Go to the source directory and try to launch the App using `script_win.ps1`(building by **_Cmake tools_**).
+
+If you are successfull, the App will be opened.
+
+#### How to run on Mac
+Go to the source directory and try to launch the App using `script_mac.sh`(building by **_Cmake tools_**).
+
+If you are successfull, the App will be opened.
+
+#### How to run on Linux
+Go to the source directory and try to launch the App using `script_linux.sh`(building by **_Cmake tools_**).
+
+If you are successfull, the App will be opened.
 
 #### View of the App
 
 1. Main window:
 <p align="center">
-  <img width="250" height="400" src="./screenshots/qt_main_window.png">
+  <img src="./screenshots/qt_main_window.png">
 </p>
 2. Graph window:
 <p align="center">
-  <img width="250" height="400" src="./screenshots/qt_graph_window.png">
+  <img src="./screenshots/qt_graph_window.png">
 </p>
-3. Help window:
+3. Credit window:
 <p align="center">
-  <img width="250" height="400" src="./screenshots/qt_help_window.png">
+  <img src="./screenshots/qt_credit_window.png">
 </p>
-4. Credit window:
+4. Deposit window:
 <p align="center">
-  <img width="250" height="400" src="./screenshots/qt_credit_window.png">
-</p>
-5. Deposit window:
-<p align="center">
-  <img width="250" height="400" src="./screenshots/qt_credit_window.png">
+  <img src="./screenshots/qt_credit_window.png">
 </p>
 
 ## <a id="desktop-version-maui">Desktop version (using .NET MAUI, C#, extern CPP Library)</a>
 
 #### Source code directory: `./MAUI/`
 
-#### Output App destination: `./MAUI/MyCalculator_v3.0/bin/Debug/net8.0-<platform's configuration>/<platform's configuration>/publish/MyCalculator.exe`
+#### Output App destination: `./MAUI/MyCalculator_v3.0/bin/Debug/net8.0-<platform's configuration>/<platform's configuration>/publish/`
 
 #### Software stack:
 
@@ -176,7 +186,7 @@ After the script will be successfully completed, you can find the App in the **_
 
 #### Source code directory: `./ASP.NET_MVC/`
 
-#### Output App destination: `./ASP.NET_MVC/bin/Debug/net8.0/MyCalculator_v4.0.exe`
+#### Output App destination: `./ASP.NET_MVC/bin/Debug/net8.0/`
 
 #### Software stack:
 
