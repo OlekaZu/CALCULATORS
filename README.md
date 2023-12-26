@@ -44,7 +44,7 @@ The App helps to calculate long math expressions, draw charts of functions, esti
 
 #### Source code directory: `./QT/`
 
-#### Output App destination: `./QT/`
+#### Output App destination: `./QT/build*/MyCalculator.exe`
 
 #### Software stack:
 
